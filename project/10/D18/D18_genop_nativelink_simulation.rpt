@@ -1,0 +1,23 @@
+Info: Start Nativelink Simulation process
+Info: NativeLink has detected VHDL design -- VHDL simulation models will be used
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  RTL
+Family                :  flex10ke
+Quartus root          :  c:/altera/90sp2/quartus/bin/
+Quartus sim root      :  c:/altera/90sp2/quartus/eda/sim_lib
+Simulation Tool       :  modelsim
+Simulation Language   :  vhdl
+Version               :  93
+Simulation Mode       :  GUI
+Sim Output File       :  D18_genop.vho
+Sim SDF file          :  D18_genop__vhdl.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim software
+Sourced NativeLink script c:/altera/90sp2/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File D18_genop_run_msim_rtl_vhdl.do already exists - backing up current file as D18_genop_run_msim_rtl_vhdl.do.bak
+Info: Spawning ModelSim Simulation software 

@@ -1,0 +1,125 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+# Date created = 16:12:53  June 13, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		D7_ogr_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY FLEX10KE
+set_global_assignment -name DEVICE "EPF10K200SRC240-3"
+set_global_assignment -name TOP_LEVEL_ENTITY D7_ogr
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.0 SP2"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:12:53  JUNE 13, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP2"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH stand_vhd_tst -section_id eda_simulation
+set_global_assignment -name EDA_TIMING_ANALYSIS_TOOL "PrimeTime (Verilog)"
+set_global_assignment -name EDA_TRUNCATE_LONG_HIERARCHY_PATHS ON -section_id eda_timing_analysis
+set_global_assignment -name EDA_FLATTEN_BUSES ON -section_id eda_timing_analysis
+set_global_assignment -name EDA_MAP_ILLEGAL_CHARACTERS ON -section_id eda_timing_analysis
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_timing_analysis
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_timing_analysis
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name SEARCH_PATH "f:\\project\\job\\s274\\lib\\s274_library\\elementary/"
+set_global_assignment -name SEARCH_PATH "f:\\project\\job\\s274\\lib\\s274_library\\composite/"
+set_global_assignment -name SEARCH_PATH "c:/altera/90/quartus/libraries/vhdl/ieee/"
+set_global_assignment -name FLEX10K_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 240
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name FLEX10K_DEVICE_IO_STANDARD LVTTL/LVCMOS
+set_location_assignment PIN_211 -to clk
+set_location_assignment PIN_181 -to x_in[8]
+set_location_assignment PIN_183 -to x_in[7]
+set_location_assignment PIN_182 -to x_in[6]
+set_location_assignment PIN_184 -to x_in[5]
+set_location_assignment PIN_186 -to x_in[4]
+set_location_assignment PIN_185 -to x_in[3]
+set_location_assignment PIN_188 -to x_in[2]
+set_location_assignment PIN_127 -to x_in[1]
+set_location_assignment PIN_128 -to x_in[0]
+set_location_assignment PIN_105 -to x_out[8]
+set_location_assignment PIN_103 -to x_out[7]
+set_location_assignment PIN_101 -to x_out[6]
+set_location_assignment PIN_108 -to x_out[5]
+set_location_assignment PIN_111 -to x_out[4]
+set_location_assignment PIN_110 -to x_out[3]
+set_location_assignment PIN_113 -to x_out[2]
+set_location_assignment PIN_106 -to x_out[1]
+set_location_assignment PIN_109 -to x_out[0]
+set_location_assignment PIN_129 -to y_in[8]
+set_location_assignment PIN_131 -to y_in[7]
+set_location_assignment PIN_132 -to y_in[6]
+set_location_assignment PIN_133 -to y_in[5]
+set_location_assignment PIN_134 -to y_in[4]
+set_location_assignment PIN_136 -to y_in[3]
+set_location_assignment PIN_137 -to y_in[2]
+set_location_assignment PIN_138 -to y_in[1]
+set_location_assignment PIN_141 -to y_in[0]
+set_location_assignment PIN_100 -to y_out[8]
+set_location_assignment PIN_99 -to y_out[7]
+set_location_assignment PIN_102 -to y_out[6]
+set_location_assignment PIN_65 -to y_out[5]
+set_location_assignment PIN_68 -to y_out[4]
+set_location_assignment PIN_67 -to y_out[3]
+set_location_assignment PIN_71 -to y_out[2]
+set_location_assignment PIN_70 -to y_out[1]
+set_location_assignment PIN_73 -to y_out[0]
+set_global_assignment -name MISC_FILE "c:/projekt N8031100A/N8031101/D7/D7_ogr.dpf"
+set_global_assignment -name MISC_FILE "C:/projekt N8031100A/N8031101/D7/D7_ogr.dpf"
+set_location_assignment PIN_143 -to addres[1]
+set_location_assignment PIN_144 -to addres[0]
+set_location_assignment PIN_147 -to m2
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name FLEX10K_CONFIGURATION_DEVICE EPC4
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+set_global_assignment -name VHDL_FILE ../ogr/mux_generic2.vhd
+set_global_assignment -name VHDL_FILE ../../job/s274/source/reverse_cordic/revers_cordic.vhd
+set_global_assignment -name VHDL_FILE ../../job/s274/lib/s274_library/elementary/mux_generic.vhd
+set_global_assignment -name VHDL_FILE ../../N8031110/s274_library/elementary/utility.vhd
+set_global_assignment -name VHDL_FILE ../../N8031110/s274_library/genop/local_types_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../N8031110/ieee_proposed/std_logic_1164_additions.vhdl
+set_global_assignment -name VHDL_FILE ../cordic/cordic.vhd
+set_global_assignment -name VHDL_FILE ../../N8031110/reverse_cordic_fixed/revers_cordic_fix.vhd
+set_global_assignment -name VHDL_FILE ../../N8031110/fifo/fifo.vhd
+set_global_assignment -name VHDL_FILE ../ogr/ogr.vhd
+set_global_assignment -name VHDL_FILE ../ogr/mux_generic1.vhd
+set_global_assignment -name VHDL_FILE ../../job/s274/lib/ieee_proposed/float_pkg_c.vhdl
+set_global_assignment -name VHDL_FILE ../../job/s274/lib/ieee_proposed/fixed_float_types_c.vhdl
+set_global_assignment -name VHDL_FILE ../../job/s274/lib/ieee_proposed/fixed_pkg_c.vhdl
+set_global_assignment -name VHDL_FILE ../../job/s274/lib/s274_library/elementary/s274types_pkg.vhd
+set_global_assignment -name VHDL_FILE D7_ogr.vhd

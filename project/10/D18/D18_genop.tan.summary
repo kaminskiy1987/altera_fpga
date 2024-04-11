@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 74.000 ns
+From           : wf[0]
+To             : gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 18.000 ns
+From           : gen_op_f:genop_instance|str_m_inn_reg
+To             : opfx[3]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -4.200 ns
+From           : enable
+To             : gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-3]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.07 MHz ( period = 141.400 ns )
+From           : gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]
+To             : gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

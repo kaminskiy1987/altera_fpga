@@ -1,0 +1,997 @@
+Classic Timing Analyzer report for D18_genop
+Tue Feb 13 10:55:21 2018
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                                      ; To                                                                    ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 74.000 ns                        ; wf[0]                                                     ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4] ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 18.000 ns                        ; gen_op_f:genop_instance|str_m_inn_reg                     ; opfx[3]                                                               ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -4.200 ns                        ; enable                                                    ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-3]                   ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 7.07 MHz ( period = 141.400 ns ) ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4] ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                           ;                                                                       ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K200SRC240-3  ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                                                                                               ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                                       ; To                                                                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 7.07 MHz ( period = 141.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 139.900 ns              ;
+; N/A                                     ; 7.09 MHz ( period = 141.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 139.500 ns              ;
+; N/A                                     ; 7.10 MHz ( period = 140.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 139.300 ns              ;
+; N/A                                     ; 7.11 MHz ( period = 140.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 139.200 ns              ;
+; N/A                                     ; 7.11 MHz ( period = 140.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 139.100 ns              ;
+; N/A                                     ; 7.12 MHz ( period = 140.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 138.900 ns              ;
+; N/A                                     ; 7.12 MHz ( period = 140.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 138.900 ns              ;
+; N/A                                     ; 7.13 MHz ( period = 140.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 138.700 ns              ;
+; N/A                                     ; 7.13 MHz ( period = 140.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 138.700 ns              ;
+; N/A                                     ; 7.14 MHz ( period = 140.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 138.600 ns              ;
+; N/A                                     ; 7.14 MHz ( period = 140.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 138.600 ns              ;
+; N/A                                     ; 7.14 MHz ( period = 140.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 138.500 ns              ;
+; N/A                                     ; 7.15 MHz ( period = 139.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 138.400 ns              ;
+; N/A                                     ; 7.15 MHz ( period = 139.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 138.400 ns              ;
+; N/A                                     ; 7.15 MHz ( period = 139.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 138.300 ns              ;
+; N/A                                     ; 7.15 MHz ( period = 139.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 138.300 ns              ;
+; N/A                                     ; 7.15 MHz ( period = 139.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 138.300 ns              ;
+; N/A                                     ; 7.16 MHz ( period = 139.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 138.200 ns              ;
+; N/A                                     ; 7.16 MHz ( period = 139.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 138.100 ns              ;
+; N/A                                     ; 7.16 MHz ( period = 139.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 138.100 ns              ;
+; N/A                                     ; 7.16 MHz ( period = 139.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 138.100 ns              ;
+; N/A                                     ; 7.17 MHz ( period = 139.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 138.000 ns              ;
+; N/A                                     ; 7.17 MHz ( period = 139.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 138.000 ns              ;
+; N/A                                     ; 7.17 MHz ( period = 139.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 137.900 ns              ;
+; N/A                                     ; 7.17 MHz ( period = 139.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 137.900 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 137.800 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 137.800 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 137.800 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 137.800 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 137.800 ns              ;
+; N/A                                     ; 7.18 MHz ( period = 139.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 137.700 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 137.600 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 137.600 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 137.600 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 137.500 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 137.500 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 137.500 ns              ;
+; N/A                                     ; 7.19 MHz ( period = 139.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 137.500 ns              ;
+; N/A                                     ; 7.20 MHz ( period = 138.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 137.400 ns              ;
+; N/A                                     ; 7.20 MHz ( period = 138.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 137.300 ns              ;
+; N/A                                     ; 7.20 MHz ( period = 138.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 137.300 ns              ;
+; N/A                                     ; 7.20 MHz ( period = 138.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 137.300 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.21 MHz ( period = 138.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 137.200 ns              ;
+; N/A                                     ; 7.22 MHz ( period = 138.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 137.100 ns              ;
+; N/A                                     ; 7.22 MHz ( period = 138.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 137.000 ns              ;
+; N/A                                     ; 7.22 MHz ( period = 138.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 137.000 ns              ;
+; N/A                                     ; 7.22 MHz ( period = 138.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 137.000 ns              ;
+; N/A                                     ; 7.22 MHz ( period = 138.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 137.000 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 136.900 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 136.900 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 136.900 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 136.900 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 136.900 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 136.800 ns              ;
+; N/A                                     ; 7.23 MHz ( period = 138.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 136.800 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 136.700 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 136.700 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 136.700 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 136.600 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 136.600 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 136.600 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 136.600 ns              ;
+; N/A                                     ; 7.24 MHz ( period = 138.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 136.600 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 138.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 136.500 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 138.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 136.500 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 138.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 136.500 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 138.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 136.500 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.25 MHz ( period = 137.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 136.400 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 136.300 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 136.300 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 136.300 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 136.300 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 136.300 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 136.200 ns              ;
+; N/A                                     ; 7.26 MHz ( period = 137.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 136.200 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 136.100 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 136.100 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 136.100 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 136.000 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 136.000 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 136.000 ns              ;
+; N/A                                     ; 7.27 MHz ( period = 137.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 136.000 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 135.900 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 135.900 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 135.900 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-5]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.28 MHz ( period = 137.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 135.800 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 135.700 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 135.700 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 135.700 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 135.700 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 135.700 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 135.600 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 135.600 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-4]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 135.600 ns              ;
+; N/A                                     ; 7.29 MHz ( period = 137.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 135.600 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 137.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 135.500 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 137.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 135.500 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 137.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 135.500 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 137.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 135.500 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 136.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 135.400 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 136.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 135.400 ns              ;
+; N/A                                     ; 7.30 MHz ( period = 136.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 135.400 ns              ;
+; N/A                                     ; 7.31 MHz ( period = 136.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 135.300 ns              ;
+; N/A                                     ; 7.31 MHz ( period = 136.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 135.300 ns              ;
+; N/A                                     ; 7.31 MHz ( period = 136.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 135.300 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-3]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 135.200 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 135.100 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 135.100 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 135.100 ns              ;
+; N/A                                     ; 7.32 MHz ( period = 136.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 135.100 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 135.000 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 135.000 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-2]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 135.000 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 134.900 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 134.900 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 134.900 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 134.900 ns              ;
+; N/A                                     ; 7.33 MHz ( period = 136.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 134.900 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-8]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 134.800 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 134.700 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 134.700 ns              ;
+; N/A                                     ; 7.34 MHz ( period = 136.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-6]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 134.700 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 134.600 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 134.600 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 134.500 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 134.500 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 134.500 ns              ;
+; N/A                                     ; 7.35 MHz ( period = 136.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 134.500 ns              ;
+; N/A                                     ; 7.36 MHz ( period = 135.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 134.400 ns              ;
+; N/A                                     ; 7.36 MHz ( period = 135.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 134.400 ns              ;
+; N/A                                     ; 7.36 MHz ( period = 135.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 134.400 ns              ;
+; N/A                                     ; 7.36 MHz ( period = 135.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 134.300 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 134.200 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 134.200 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 134.200 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 134.200 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]   ; clk        ; clk      ; None                        ; None                      ; 134.200 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 134.100 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 134.100 ns              ;
+; N/A                                     ; 7.37 MHz ( period = 135.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[0]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 134.100 ns              ;
+; N/A                                     ; 7.38 MHz ( period = 135.500 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 134.000 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 133.900 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 133.900 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 133.900 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 133.900 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 133.800 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 133.800 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[1]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 133.800 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]   ; clk        ; clk      ; None                        ; None                      ; 133.800 ns              ;
+; N/A                                     ; 7.39 MHz ( period = 135.300 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 133.800 ns              ;
+; N/A                                     ; 7.40 MHz ( period = 135.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 133.600 ns              ;
+; N/A                                     ; 7.40 MHz ( period = 135.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 133.600 ns              ;
+; N/A                                     ; 7.40 MHz ( period = 135.100 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 133.600 ns              ;
+; N/A                                     ; 7.41 MHz ( period = 135.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 133.500 ns              ;
+; N/A                                     ; 7.41 MHz ( period = 135.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 133.500 ns              ;
+; N/A                                     ; 7.41 MHz ( period = 135.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[2]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 133.500 ns              ;
+; N/A                                     ; 7.41 MHz ( period = 135.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 133.500 ns              ;
+; N/A                                     ; 7.41 MHz ( period = 135.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]   ; clk        ; clk      ; None                        ; None                      ; 133.500 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 133.300 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.800 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 133.300 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10] ; clk        ; clk      ; None                        ; None                      ; 133.200 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]  ; clk        ; clk      ; None                        ; None                      ; 133.200 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[3]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]  ; clk        ; clk      ; None                        ; None                      ; 133.200 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 133.200 ns              ;
+; N/A                                     ; 7.42 MHz ( period = 134.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]   ; clk        ; clk      ; None                        ; None                      ; 133.200 ns              ;
+; N/A                                     ; 7.44 MHz ( period = 134.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]   ; clk        ; clk      ; None                        ; None                      ; 132.900 ns              ;
+; N/A                                     ; 7.45 MHz ( period = 134.200 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]  ; clk        ; clk      ; None                        ; None                      ; 132.700 ns              ;
+; N/A                                     ; 7.46 MHz ( period = 134.000 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]  ; clk        ; clk      ; None                        ; None                      ; 132.500 ns              ;
+; N/A                                     ; 7.47 MHz ( period = 133.900 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]  ; clk        ; clk      ; None                        ; None                      ; 132.400 ns              ;
+; N/A                                     ; 7.48 MHz ( period = 133.700 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]  ; clk        ; clk      ; None                        ; None                      ; 132.200 ns              ;
+; N/A                                     ; 7.49 MHz ( period = 133.600 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-10] ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]  ; clk        ; clk      ; None                        ; None                      ; 132.100 ns              ;
+; N/A                                     ; 7.50 MHz ( period = 133.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]  ; clk        ; clk      ; None                        ; None                      ; 131.900 ns              ;
+; N/A                                     ; 7.50 MHz ( period = 133.400 ns )                    ; gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[4]   ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]  ; clk        ; clk      ; None                        ; None                      ; 131.900 ns              ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                            ;                                                                         ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                                      ;
++-------+--------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From   ; To                                                                                                               ; To Clock ;
++-------+--------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+; N/A   ; None         ; 74.000 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]                                            ; clk      ;
+; N/A   ; None         ; 73.800 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]                                            ; clk      ;
+; N/A   ; None         ; 73.600 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]                                            ; clk      ;
+; N/A   ; None         ; 73.400 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]                                            ; clk      ;
+; N/A   ; None         ; 73.300 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]                                            ; clk      ;
+; N/A   ; None         ; 73.100 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]                                            ; clk      ;
+; N/A   ; None         ; 73.000 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]                                            ; clk      ;
+; N/A   ; None         ; 72.800 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]                                            ; clk      ;
+; N/A   ; None         ; 72.700 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]                                            ; clk      ;
+; N/A   ; None         ; 72.500 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]                                            ; clk      ;
+; N/A   ; None         ; 72.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]                                           ; clk      ;
+; N/A   ; None         ; 72.300 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]                                           ; clk      ;
+; N/A   ; None         ; 72.200 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]                                           ; clk      ;
+; N/A   ; None         ; 72.000 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]                                           ; clk      ;
+; N/A   ; None         ; 72.000 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]                                           ; clk      ;
+; N/A   ; None         ; 71.800 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]                                           ; clk      ;
+; N/A   ; None         ; 71.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]                                           ; clk      ;
+; N/A   ; None         ; 71.300 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]                                           ; clk      ;
+; N/A   ; None         ; 71.200 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]                                           ; clk      ;
+; N/A   ; None         ; 71.000 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]                                           ; clk      ;
+; N/A   ; None         ; 70.900 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]                                           ; clk      ;
+; N/A   ; None         ; 70.800 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]                                           ; clk      ;
+; N/A   ; None         ; 70.700 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]                                           ; clk      ;
+; N/A   ; None         ; 70.600 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]                                           ; clk      ;
+; N/A   ; None         ; 70.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10]                                          ; clk      ;
+; N/A   ; None         ; 70.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]                                           ; clk      ;
+; N/A   ; None         ; 70.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]                                           ; clk      ;
+; N/A   ; None         ; 70.300 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10]                                          ; clk      ;
+; N/A   ; None         ; 70.300 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]                                           ; clk      ;
+; N/A   ; None         ; 70.300 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]                                           ; clk      ;
+; N/A   ; None         ; 25.100 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~31                                                                     ; clk      ;
+; N/A   ; None         ; 25.100 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~28                                                                     ; clk      ;
+; N/A   ; None         ; 25.100 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~27                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~17                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~18                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~19                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~20                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~21                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~22                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~23                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~24                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~30                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~29                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~25                                                                     ; clk      ;
+; N/A   ; None         ; 25.000 ns  ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~26                                                                     ; clk      ;
+; N/A   ; None         ; 24.900 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~31                                                                     ; clk      ;
+; N/A   ; None         ; 24.900 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~28                                                                     ; clk      ;
+; N/A   ; None         ; 24.900 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~27                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~17                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~18                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~19                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~20                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~21                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~22                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~23                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~24                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~30                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~29                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~25                                                                     ; clk      ;
+; N/A   ; None         ; 24.800 ns  ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~26                                                                     ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[0]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[1]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[6]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[7]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[0]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[1]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[3]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[5]                                                         ; clk      ;
+; N/A   ; None         ; 17.700 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[6]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[0]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[1]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[6]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[7]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[0]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[1]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[3]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[5]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[6]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[2]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[4]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[2]                                                         ; clk      ;
+; N/A   ; None         ; 17.500 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[7]                                                         ; clk      ;
+; N/A   ; None         ; 17.300 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[2]                                                         ; clk      ;
+; N/A   ; None         ; 17.300 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[4]                                                         ; clk      ;
+; N/A   ; None         ; 17.300 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[2]                                                         ; clk      ;
+; N/A   ; None         ; 17.300 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[7]                                                         ; clk      ;
+; N/A   ; None         ; 16.000 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[3]                                                         ; clk      ;
+; N/A   ; None         ; 16.000 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[5]                                                         ; clk      ;
+; N/A   ; None         ; 16.000 ns  ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[4]                                                         ; clk      ;
+; N/A   ; None         ; 15.800 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[3]                                                         ; clk      ;
+; N/A   ; None         ; 15.800 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[5]                                                         ; clk      ;
+; N/A   ; None         ; 15.800 ns  ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[4]                                                         ; clk      ;
+; N/A   ; None         ; 14.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[1]                                                                        ; clk      ;
+; N/A   ; None         ; 14.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[2]                                                                        ; clk      ;
+; N/A   ; None         ; 14.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[6]                                                                        ; clk      ;
+; N/A   ; None         ; 14.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[7]                                                                        ; clk      ;
+; N/A   ; None         ; 14.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[9]                                                                        ; clk      ;
+; N/A   ; None         ; 14.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[8]                                                                        ; clk      ;
+; N/A   ; None         ; 14.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-9]                                                                      ; clk      ;
+; N/A   ; None         ; 14.100 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[0]                                                                        ; clk      ;
+; N/A   ; None         ; 14.100 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-10]                                                                     ; clk      ;
+; N/A   ; None         ; 12.100 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[3]                                                                        ; clk      ;
+; N/A   ; None         ; 12.100 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-1]                                                                      ; clk      ;
+; N/A   ; None         ; 12.100 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-7]                                                                      ; clk      ;
+; N/A   ; None         ; 11.100 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[31]                                                              ; clk      ;
+; N/A   ; None         ; 10.800 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[5]                                                                        ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[4]                                                                        ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[4]                                                                       ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[0]                                                                       ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-6]                                                                      ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-8]                                                                      ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-5]                                                                      ; clk      ;
+; N/A   ; None         ; 10.200 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A   ; None         ; 10.200 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A   ; None         ; 10.200 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A   ; None         ; 10.200 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-1]                                                      ; clk      ;
+; N/A   ; None         ; 10.000 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A   ; None         ; 10.000 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[1]                                                                       ; clk      ;
+; N/A   ; None         ; 10.000 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[3]                                                                       ; clk      ;
+; N/A   ; None         ; 10.000 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[2]                                                                       ; clk      ;
+; N/A   ; None         ; 9.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-4]                                                                      ; clk      ;
+; N/A   ; None         ; 9.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-2]                                                                      ; clk      ;
+; N/A   ; None         ; 9.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-3]                                                                      ; clk      ;
+; N/A   ; None         ; 9.900 ns   ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-1]                                                      ; clk      ;
+; N/A   ; None         ; 9.600 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A   ; None         ; 9.600 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A   ; None         ; 9.200 ns   ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A   ; None         ; 9.100 ns   ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A   ; None         ; 9.100 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A   ; None         ; 8.000 ns   ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[2]                                                        ; clk      ;
+; N/A   ; None         ; 8.000 ns   ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A   ; None         ; 8.000 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[2]                                                        ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|\q1:find                                                           ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[0]                                                        ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[0]                                                        ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[7]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1]  ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0]  ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[23] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[22] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[21] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[20] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[19] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[18] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[17] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[16] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[15] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[14] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[13] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[12] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[11] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[10] ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[9]  ; clk      ;
+; N/A   ; None         ; 7.700 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[8]  ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[31] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[30] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[29] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[28] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[27] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[26] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[25] ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[24] ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|str_m                                                                          ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-10]                                                             ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[1]                                                               ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[0]                                                               ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-7]                                                              ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-8]                                                              ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[4]                                                               ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[3]                                                               ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-2]                                                              ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-5]                                                              ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-10]                                                     ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-9]                                                      ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-5]                                                      ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-4]                                                              ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-6]                                                              ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-10]                                                     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-5]                                                      ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-9]                                                              ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[2]                                                               ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-1]                                                              ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-3]                                                              ; clk      ;
++-------+--------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                 ;
++-------+--------------+------------+----------------------------------------------------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From                                                     ; To      ; From Clock ;
++-------+--------------+------------+----------------------------------------------------------+---------+------------+
+; N/A   ; None         ; 18.000 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[3] ; clk        ;
+; N/A   ; None         ; 17.400 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[7] ; clk        ;
+; N/A   ; None         ; 17.300 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[2] ; clk        ;
+; N/A   ; None         ; 17.200 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[6] ; clk        ;
+; N/A   ; None         ; 17.100 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[3] ; clk        ;
+; N/A   ; None         ; 17.100 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[5] ; clk        ;
+; N/A   ; None         ; 17.000 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[4] ; clk        ;
+; N/A   ; None         ; 16.800 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[1] ; clk        ;
+; N/A   ; None         ; 16.600 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[0] ; clk        ;
+; N/A   ; None         ; 15.200 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[7] ; opfx[7] ; clk        ;
+; N/A   ; None         ; 15.100 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[6] ; clk        ;
+; N/A   ; None         ; 15.100 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[6] ; opfx[6] ; clk        ;
+; N/A   ; None         ; 15.100 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[2] ; clk        ;
+; N/A   ; None         ; 15.000 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[6] ; opfy[6] ; clk        ;
+; N/A   ; None         ; 15.000 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[2] ; opfy[2] ; clk        ;
+; N/A   ; None         ; 15.000 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[4] ; clk        ;
+; N/A   ; None         ; 14.900 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[3] ; opfy[3] ; clk        ;
+; N/A   ; None         ; 14.700 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[7] ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[1] ; opfy[1] ; clk        ;
+; N/A   ; None         ; 14.400 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[0] ; opfy[0] ; clk        ;
+; N/A   ; None         ; 14.200 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[3] ; opfx[3] ; clk        ;
+; N/A   ; None         ; 13.800 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfy[5] ; clk        ;
+; N/A   ; None         ; 13.300 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[5] ; opfx[5] ; clk        ;
+; N/A   ; None         ; 13.200 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[4] ; opfy[4] ; clk        ;
+; N/A   ; None         ; 12.900 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[1] ; clk        ;
+; N/A   ; None         ; 12.900 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[1] ; opfx[1] ; clk        ;
+; N/A   ; None         ; 12.900 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[0] ; opfx[0] ; clk        ;
+; N/A   ; None         ; 12.900 ns  ; gen_op_f:genop_instance|str_m_inn_reg                    ; opfx[0] ; clk        ;
+; N/A   ; None         ; 12.800 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[2] ; opfx[2] ; clk        ;
+; N/A   ; None         ; 12.700 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[4] ; opfx[4] ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[7] ; opfy[7] ; clk        ;
+; N/A   ; None         ; 11.600 ns  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[5] ; opfy[5] ; clk        ;
++-------+--------------+------------+----------------------------------------------------------+---------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                                              ;
++---------------+-------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From   ; To                                                                                                               ; To Clock ;
++---------------+-------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+; N/A           ; None        ; -4.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-9]                                                              ; clk      ;
+; N/A           ; None        ; -4.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[2]                                                               ; clk      ;
+; N/A           ; None        ; -4.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-1]                                                              ; clk      ;
+; N/A           ; None        ; -4.200 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-3]                                                              ; clk      ;
+; N/A           ; None        ; -4.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-4]                                                              ; clk      ;
+; N/A           ; None        ; -4.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-6]                                                              ; clk      ;
+; N/A           ; None        ; -4.400 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-10]                                                     ; clk      ;
+; N/A           ; None        ; -4.400 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-5]                                                      ; clk      ;
+; N/A           ; None        ; -4.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-10]                                                     ; clk      ;
+; N/A           ; None        ; -4.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-9]                                                      ; clk      ;
+; N/A           ; None        ; -4.500 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-5]                                                      ; clk      ;
+; N/A           ; None        ; -4.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[3]                                                               ; clk      ;
+; N/A           ; None        ; -4.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-2]                                                              ; clk      ;
+; N/A           ; None        ; -4.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-5]                                                              ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|str_m                                                                          ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-10]                                                             ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[1]                                                               ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[0]                                                               ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-7]                                                              ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-8]                                                              ; clk      ;
+; N/A           ; None        ; -4.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[4]                                                               ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[31] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[30] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[29] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[28] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[27] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[26] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[25] ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[24] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[23] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[22] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[21] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[20] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[19] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[18] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[17] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[16] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[15] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[14] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[13] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[12] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[11] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[10] ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[9]  ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[8]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[0]                                                        ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[7]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1]  ; clk      ;
+; N/A           ; None        ; -5.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|lpm_counter:\p1:count[0]_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0]  ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|\q1:find                                                           ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[6]                                                               ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[0]                                                        ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[8]                                                        ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[2]                                                        ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|addrbase[2]                                                        ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-6]                                                              ; clk      ;
+; N/A           ; None        ; -6.900 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A           ; None        ; -7.000 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A           ; None        ; -7.000 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|d[-5]                                                              ; clk      ;
+; N/A           ; None        ; -7.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-4]                                                                      ; clk      ;
+; N/A           ; None        ; -7.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-2]                                                                      ; clk      ;
+; N/A           ; None        ; -7.700 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-3]                                                                      ; clk      ;
+; N/A           ; None        ; -7.700 ns  ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-1]                                                      ; clk      ;
+; N/A           ; None        ; -7.800 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A           ; None        ; -7.800 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[1]                                                                       ; clk      ;
+; N/A           ; None        ; -7.800 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[3]                                                                       ; clk      ;
+; N/A           ; None        ; -7.800 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[2]                                                                       ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; pts[1] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[7]                                                               ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|a1[-1]                                                      ; clk      ;
+; N/A           ; None        ; -8.000 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[5]                                                               ; clk      ;
+; N/A           ; None        ; -8.000 ns  ; pts[0] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[0]                                                               ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[4]                                                                        ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[4]                                                                       ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[0]                                                                       ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-6]                                                                      ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-8]                                                                      ; clk      ;
+; N/A           ; None        ; -8.400 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-5]                                                                      ; clk      ;
+; N/A           ; None        ; -8.600 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[5]                                                                        ; clk      ;
+; N/A           ; None        ; -8.900 ns  ; pts[2] ; gen_op_f:genop_instance|dec_pts:decoder_pts_0|N[31]                                                              ; clk      ;
+; N/A           ; None        ; -9.900 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[3]                                                                        ; clk      ;
+; N/A           ; None        ; -9.900 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-1]                                                                      ; clk      ;
+; N/A           ; None        ; -9.900 ns  ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-7]                                                                      ; clk      ;
+; N/A           ; None        ; -11.900 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[0]                                                                        ; clk      ;
+; N/A           ; None        ; -11.900 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-10]                                                                     ; clk      ;
+; N/A           ; None        ; -12.000 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[8]                                                                        ; clk      ;
+; N/A           ; None        ; -12.000 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|angle[-9]                                                                      ; clk      ;
+; N/A           ; None        ; -12.300 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[1]                                                                        ; clk      ;
+; N/A           ; None        ; -12.300 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[2]                                                                        ; clk      ;
+; N/A           ; None        ; -12.300 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[6]                                                                        ; clk      ;
+; N/A           ; None        ; -12.300 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[7]                                                                        ; clk      ;
+; N/A           ; None        ; -12.300 ns ; enable ; gen_op_f:genop_instance|st2:ct2_0|addr[9]                                                                        ; clk      ;
+; N/A           ; None        ; -13.600 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[3]                                                         ; clk      ;
+; N/A           ; None        ; -13.600 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[5]                                                         ; clk      ;
+; N/A           ; None        ; -13.600 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[4]                                                         ; clk      ;
+; N/A           ; None        ; -13.800 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[3]                                                         ; clk      ;
+; N/A           ; None        ; -13.800 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[5]                                                         ; clk      ;
+; N/A           ; None        ; -13.800 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[4]                                                         ; clk      ;
+; N/A           ; None        ; -15.100 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[2]                                                         ; clk      ;
+; N/A           ; None        ; -15.100 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[4]                                                         ; clk      ;
+; N/A           ; None        ; -15.100 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[2]                                                         ; clk      ;
+; N/A           ; None        ; -15.100 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[7]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[0]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[1]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[6]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[7]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[0]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[1]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[3]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[5]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[1]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[6]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[2]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[4]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[2]                                                         ; clk      ;
+; N/A           ; None        ; -15.300 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[7]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[0]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[1]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[6]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_0|opr[7]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[0]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[1]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[3]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[5]                                                         ; clk      ;
+; N/A           ; None        ; -15.500 ns ; wf[0]  ; gen_op_f:genop_instance|sfixed_mult:sfixed_mult_1|opr[6]                                                         ; clk      ;
+; N/A           ; None        ; -17.400 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~19                                                                     ; clk      ;
+; N/A           ; None        ; -17.400 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~21                                                                     ; clk      ;
+; N/A           ; None        ; -17.400 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~22                                                                     ; clk      ;
+; N/A           ; None        ; -17.500 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~18                                                                     ; clk      ;
+; N/A           ; None        ; -17.500 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~23                                                                     ; clk      ;
+; N/A           ; None        ; -17.600 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~24                                                                     ; clk      ;
+; N/A           ; None        ; -17.600 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~19                                                                     ; clk      ;
+; N/A           ; None        ; -17.600 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~21                                                                     ; clk      ;
+; N/A           ; None        ; -17.600 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~22                                                                     ; clk      ;
+; N/A           ; None        ; -17.700 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~20                                                                     ; clk      ;
+; N/A           ; None        ; -17.700 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~18                                                                     ; clk      ;
+; N/A           ; None        ; -17.700 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~23                                                                     ; clk      ;
+; N/A           ; None        ; -17.800 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~27                                                                     ; clk      ;
+; N/A           ; None        ; -17.800 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~26                                                                     ; clk      ;
+; N/A           ; None        ; -17.800 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~24                                                                     ; clk      ;
+; N/A           ; None        ; -17.900 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~20                                                                     ; clk      ;
+; N/A           ; None        ; -18.000 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~25                                                                     ; clk      ;
+; N/A           ; None        ; -18.000 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~27                                                                     ; clk      ;
+; N/A           ; None        ; -18.000 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~26                                                                     ; clk      ;
+; N/A           ; None        ; -18.100 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~17                                                                     ; clk      ;
+; N/A           ; None        ; -18.100 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~28                                                                     ; clk      ;
+; N/A           ; None        ; -18.200 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~25                                                                     ; clk      ;
+; N/A           ; None        ; -18.300 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~29                                                                     ; clk      ;
+; N/A           ; None        ; -18.300 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~17                                                                     ; clk      ;
+; N/A           ; None        ; -18.300 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~28                                                                     ; clk      ;
+; N/A           ; None        ; -18.500 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~29                                                                     ; clk      ;
+; N/A           ; None        ; -18.600 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~30                                                                     ; clk      ;
+; N/A           ; None        ; -18.800 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~30                                                                     ; clk      ;
+; N/A           ; None        ; -19.400 ns ; wf[1]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~31                                                                     ; clk      ;
+; N/A           ; None        ; -19.600 ns ; wf[0]  ; gen_op_f:genop_instance|fifo:fifo_wfk|ram~31                                                                     ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]                                           ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]                                           ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]                                           ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]                                            ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]                                            ; clk      ;
+; N/A           ; None        ; -36.300 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]                                            ; clk      ;
+; N/A           ; None        ; -36.400 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]                                            ; clk      ;
+; N/A           ; None        ; -36.400 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]                                            ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10]                                          ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]                                           ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]                                           ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]                                           ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]                                           ; clk      ;
+; N/A           ; None        ; -36.500 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]                                           ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[1]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]                                           ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-4]                                           ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-6]                                           ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-5]                                           ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]                                            ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[1]                                            ; clk      ;
+; N/A           ; None        ; -36.600 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[2]                                            ; clk      ;
+; N/A           ; None        ; -36.700 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[3]                                            ; clk      ;
+; N/A           ; None        ; -36.700 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[0]                                            ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-10]                                          ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-9]                                           ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-8]                                           ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-3]                                           ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-2]                                           ; clk      ;
+; N/A           ; None        ; -36.800 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-1]                                           ; clk      ;
+; N/A           ; None        ; -36.900 ns ; wf[0]  ; gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[-7]                                           ; clk      ;
++---------------+-------------+------------+--------+------------------------------------------------------------------------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue Feb 13 10:55:18 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off D18_genop -c D18_genop
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 7.07 MHz between source register "gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]" and destination register "gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]" (period= 141.4 ns)
+    Info: + Longest register to register delay is 139.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_B35; Fanout = 13; REG Node = 'gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]'
+        Info: 2: + IC(1.600 ns) + CELL(0.600 ns) = 2.200 ns; Loc. = LC3_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 3: + IC(0.000 ns) + CELL(0.300 ns) = 2.500 ns; Loc. = LC4_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 4: + IC(0.000 ns) + CELL(0.300 ns) = 2.800 ns; Loc. = LC5_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 5: + IC(0.000 ns) + CELL(0.300 ns) = 3.100 ns; Loc. = LC6_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 6: + IC(0.000 ns) + CELL(0.300 ns) = 3.400 ns; Loc. = LC7_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 7: + IC(0.000 ns) + CELL(0.300 ns) = 3.700 ns; Loc. = LC8_B34; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 8: + IC(0.200 ns) + CELL(0.300 ns) = 4.200 ns; Loc. = LC1_B36; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 9: + IC(0.000 ns) + CELL(0.300 ns) = 4.500 ns; Loc. = LC2_B36; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 10: + IC(0.000 ns) + CELL(0.300 ns) = 4.800 ns; Loc. = LC3_B36; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 11: + IC(0.000 ns) + CELL(0.300 ns) = 5.100 ns; Loc. = LC4_B36; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 12: + IC(0.000 ns) + CELL(0.300 ns) = 5.400 ns; Loc. = LC5_B36; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 13: + IC(0.000 ns) + CELL(1.400 ns) = 6.800 ns; Loc. = LC6_B36; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add3|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]'
+        Info: 14: + IC(1.700 ns) + CELL(1.200 ns) = 9.700 ns; Loc. = LC3_B27; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan0~23'
+        Info: 15: + IC(0.000 ns) + CELL(2.000 ns) = 11.700 ns; Loc. = LC4_B27; Fanout = 13; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan0~16'
+        Info: 16: + IC(0.200 ns) + CELL(2.000 ns) = 13.900 ns; Loc. = LC1_B27; Fanout = 59; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan0~5'
+        Info: 17: + IC(4.300 ns) + CELL(0.600 ns) = 18.800 ns; Loc. = LC2_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 18: + IC(0.000 ns) + CELL(0.300 ns) = 19.100 ns; Loc. = LC3_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 19: + IC(0.000 ns) + CELL(0.300 ns) = 19.400 ns; Loc. = LC4_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 20: + IC(0.000 ns) + CELL(0.300 ns) = 19.700 ns; Loc. = LC5_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 21: + IC(0.000 ns) + CELL(0.300 ns) = 20.000 ns; Loc. = LC6_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 22: + IC(0.000 ns) + CELL(0.300 ns) = 20.300 ns; Loc. = LC7_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 23: + IC(0.000 ns) + CELL(0.300 ns) = 20.600 ns; Loc. = LC8_O27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 24: + IC(0.200 ns) + CELL(0.300 ns) = 21.100 ns; Loc. = LC1_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 25: + IC(0.000 ns) + CELL(0.300 ns) = 21.400 ns; Loc. = LC2_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 26: + IC(0.000 ns) + CELL(0.300 ns) = 21.700 ns; Loc. = LC3_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 27: + IC(0.000 ns) + CELL(0.300 ns) = 22.000 ns; Loc. = LC4_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 28: + IC(0.000 ns) + CELL(0.300 ns) = 22.300 ns; Loc. = LC5_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 29: + IC(0.000 ns) + CELL(0.300 ns) = 22.600 ns; Loc. = LC6_O29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 30: + IC(0.000 ns) + CELL(1.400 ns) = 24.000 ns; Loc. = LC7_O29; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add7|addcore:adder|a_csnbuffer:result_node|cs_buffer[14]'
+        Info: 31: + IC(1.500 ns) + CELL(2.000 ns) = 27.500 ns; Loc. = LC1_O28; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan1~0'
+        Info: 32: + IC(0.200 ns) + CELL(2.000 ns) = 29.700 ns; Loc. = LC2_O28; Fanout = 3; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan1~4'
+        Info: 33: + IC(4.700 ns) + CELL(2.000 ns) = 36.400 ns; Loc. = LC1_B31; Fanout = 62; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|$00006~0'
+        Info: 34: + IC(1.600 ns) + CELL(2.000 ns) = 40.000 ns; Loc. = LC1_B29; Fanout = 4; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|angle~76'
+        Info: 35: + IC(1.500 ns) + CELL(0.600 ns) = 42.100 ns; Loc. = LC2_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 36: + IC(0.000 ns) + CELL(0.300 ns) = 42.400 ns; Loc. = LC3_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 37: + IC(0.000 ns) + CELL(0.300 ns) = 42.700 ns; Loc. = LC4_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 38: + IC(0.000 ns) + CELL(0.300 ns) = 43.000 ns; Loc. = LC5_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 39: + IC(0.000 ns) + CELL(0.300 ns) = 43.300 ns; Loc. = LC6_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 40: + IC(0.000 ns) + CELL(0.300 ns) = 43.600 ns; Loc. = LC7_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 41: + IC(0.000 ns) + CELL(0.300 ns) = 43.900 ns; Loc. = LC8_B28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 42: + IC(0.200 ns) + CELL(0.300 ns) = 44.400 ns; Loc. = LC1_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 43: + IC(0.000 ns) + CELL(0.300 ns) = 44.700 ns; Loc. = LC2_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 44: + IC(0.000 ns) + CELL(0.300 ns) = 45.000 ns; Loc. = LC3_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 45: + IC(0.000 ns) + CELL(0.300 ns) = 45.300 ns; Loc. = LC4_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 46: + IC(0.000 ns) + CELL(0.300 ns) = 45.600 ns; Loc. = LC5_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 47: + IC(0.000 ns) + CELL(0.300 ns) = 45.900 ns; Loc. = LC6_B30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 48: + IC(0.000 ns) + CELL(1.400 ns) = 47.300 ns; Loc. = LC7_B30; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add20|addcore:adder|a_csnbuffer:result_node|cs_buffer[14]'
+        Info: 49: + IC(1.500 ns) + CELL(2.000 ns) = 50.800 ns; Loc. = LC2_B27; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan2~0'
+        Info: 50: + IC(0.200 ns) + CELL(2.000 ns) = 53.000 ns; Loc. = LC6_B27; Fanout = 3; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan2~4'
+        Info: 51: + IC(3.200 ns) + CELL(2.000 ns) = 58.200 ns; Loc. = LC1_H29; Fanout = 42; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add25|addcore:adder|$00006~0'
+        Info: 52: + IC(3.600 ns) + CELL(2.000 ns) = 63.800 ns; Loc. = LC1_H21; Fanout = 6; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|angle~55'
+        Info: 53: + IC(1.900 ns) + CELL(0.600 ns) = 66.300 ns; Loc. = LC2_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 54: + IC(0.000 ns) + CELL(0.300 ns) = 66.600 ns; Loc. = LC3_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 55: + IC(0.000 ns) + CELL(0.300 ns) = 66.900 ns; Loc. = LC4_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 56: + IC(0.000 ns) + CELL(0.300 ns) = 67.200 ns; Loc. = LC5_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 57: + IC(0.000 ns) + CELL(0.300 ns) = 67.500 ns; Loc. = LC6_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 58: + IC(0.000 ns) + CELL(0.300 ns) = 67.800 ns; Loc. = LC7_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 59: + IC(0.000 ns) + CELL(0.300 ns) = 68.100 ns; Loc. = LC8_H22; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 60: + IC(0.200 ns) + CELL(0.300 ns) = 68.600 ns; Loc. = LC1_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 61: + IC(0.000 ns) + CELL(0.300 ns) = 68.900 ns; Loc. = LC2_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 62: + IC(0.000 ns) + CELL(0.300 ns) = 69.200 ns; Loc. = LC3_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 63: + IC(0.000 ns) + CELL(0.300 ns) = 69.500 ns; Loc. = LC4_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 64: + IC(0.000 ns) + CELL(0.300 ns) = 69.800 ns; Loc. = LC5_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 65: + IC(0.000 ns) + CELL(0.300 ns) = 70.100 ns; Loc. = LC6_H24; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 66: + IC(0.000 ns) + CELL(1.400 ns) = 71.500 ns; Loc. = LC7_H24; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add29|addcore:adder|a_csnbuffer:result_node|cs_buffer[14]'
+        Info: 67: + IC(1.900 ns) + CELL(2.000 ns) = 75.400 ns; Loc. = LC2_H25; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan3~0'
+        Info: 68: + IC(0.200 ns) + CELL(2.000 ns) = 77.600 ns; Loc. = LC1_H25; Fanout = 3; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan3~4'
+        Info: 69: + IC(3.000 ns) + CELL(2.000 ns) = 82.600 ns; Loc. = LC1_H38; Fanout = 35; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add34|addcore:adder|$00006~0'
+        Info: 70: + IC(1.900 ns) + CELL(2.000 ns) = 86.500 ns; Loc. = LC2_H47; Fanout = 4; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add33|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]'
+        Info: 71: + IC(1.600 ns) + CELL(0.600 ns) = 88.700 ns; Loc. = LC8_H48; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 72: + IC(0.200 ns) + CELL(0.300 ns) = 89.200 ns; Loc. = LC1_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 73: + IC(0.000 ns) + CELL(0.300 ns) = 89.500 ns; Loc. = LC2_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 74: + IC(0.000 ns) + CELL(0.300 ns) = 89.800 ns; Loc. = LC3_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 75: + IC(0.000 ns) + CELL(0.300 ns) = 90.100 ns; Loc. = LC4_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 76: + IC(0.000 ns) + CELL(0.300 ns) = 90.400 ns; Loc. = LC5_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 77: + IC(0.000 ns) + CELL(0.300 ns) = 90.700 ns; Loc. = LC6_H50; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 78: + IC(0.000 ns) + CELL(1.400 ns) = 92.100 ns; Loc. = LC7_H50; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add38|addcore:adder|a_csnbuffer:result_node|cs_buffer[14]'
+        Info: 79: + IC(1.600 ns) + CELL(2.000 ns) = 95.700 ns; Loc. = LC2_H51; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan4~0'
+        Info: 80: + IC(0.200 ns) + CELL(2.000 ns) = 97.900 ns; Loc. = LC1_H51; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan4~4'
+        Info: 81: + IC(1.900 ns) + CELL(2.000 ns) = 101.800 ns; Loc. = LC1_H34; Fanout = 36; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add43|addcore:adder|$00006~0'
+        Info: 82: + IC(1.600 ns) + CELL(2.000 ns) = 105.400 ns; Loc. = LC5_H33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add42|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]'
+        Info: 83: + IC(1.600 ns) + CELL(0.600 ns) = 107.600 ns; Loc. = LC7_H30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 84: + IC(0.000 ns) + CELL(0.300 ns) = 107.900 ns; Loc. = LC8_H30; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 85: + IC(0.200 ns) + CELL(0.300 ns) = 108.400 ns; Loc. = LC1_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 86: + IC(0.000 ns) + CELL(0.300 ns) = 108.700 ns; Loc. = LC2_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 87: + IC(0.000 ns) + CELL(0.300 ns) = 109.000 ns; Loc. = LC3_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 88: + IC(0.000 ns) + CELL(0.300 ns) = 109.300 ns; Loc. = LC4_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 89: + IC(0.000 ns) + CELL(0.300 ns) = 109.600 ns; Loc. = LC5_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 90: + IC(0.000 ns) + CELL(0.300 ns) = 109.900 ns; Loc. = LC6_H32; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 91: + IC(0.000 ns) + CELL(1.400 ns) = 111.300 ns; Loc. = LC7_H32; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add47|addcore:adder|a_csnbuffer:result_node|cs_buffer[14]'
+        Info: 92: + IC(1.600 ns) + CELL(2.000 ns) = 114.900 ns; Loc. = LC2_H27; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan5~0'
+        Info: 93: + IC(0.200 ns) + CELL(2.000 ns) = 117.100 ns; Loc. = LC1_H27; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|LessThan5~4'
+        Info: 94: + IC(3.400 ns) + CELL(2.000 ns) = 122.500 ns; Loc. = LC1_N29; Fanout = 8; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|$00006~0'
+        Info: 95: + IC(1.500 ns) + CELL(2.000 ns) = 126.000 ns; Loc. = LC7_N28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|datab_node[1]'
+        Info: 96: + IC(1.600 ns) + CELL(0.600 ns) = 128.200 ns; Loc. = LC3_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 97: + IC(0.000 ns) + CELL(0.300 ns) = 128.500 ns; Loc. = LC4_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 98: + IC(0.000 ns) + CELL(0.300 ns) = 128.800 ns; Loc. = LC5_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 99: + IC(0.000 ns) + CELL(0.300 ns) = 129.100 ns; Loc. = LC6_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 100: + IC(0.000 ns) + CELL(0.300 ns) = 129.400 ns; Loc. = LC7_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 101: + IC(0.000 ns) + CELL(0.300 ns) = 129.700 ns; Loc. = LC8_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 102: + IC(0.200 ns) + CELL(0.300 ns) = 130.200 ns; Loc. = LC1_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 103: + IC(0.000 ns) + CELL(0.300 ns) = 130.500 ns; Loc. = LC2_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 104: + IC(0.000 ns) + CELL(0.300 ns) = 130.800 ns; Loc. = LC3_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 105: + IC(0.000 ns) + CELL(0.300 ns) = 131.100 ns; Loc. = LC4_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 106: + IC(0.000 ns) + CELL(0.300 ns) = 131.400 ns; Loc. = LC5_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 107: + IC(0.000 ns) + CELL(0.300 ns) = 131.700 ns; Loc. = LC6_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 108: + IC(0.000 ns) + CELL(0.300 ns) = 132.000 ns; Loc. = LC7_N31; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 109: + IC(0.000 ns) + CELL(1.400 ns) = 133.400 ns; Loc. = LC8_N31; Fanout = 16; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|unreg_res_node[14]'
+        Info: 110: + IC(1.700 ns) + CELL(2.000 ns) = 137.100 ns; Loc. = LC8_N32; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add54|addcore:adder|unreg_res_node[14]'
+        Info: 111: + IC(1.600 ns) + CELL(1.200 ns) = 139.900 ns; Loc. = LC4_N27; Fanout = 13; REG Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]'
+        Info: Total cell delay = 83.700 ns ( 59.83 % )
+        Info: Total interconnect delay = 56.200 ns ( 40.17 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.600 ns) = 1.600 ns; Loc. = PIN_211; Fanout = 349; CLK Node = 'clk'
+            Info: 2: + IC(1.200 ns) + CELL(0.000 ns) = 2.800 ns; Loc. = LC4_N27; Fanout = 13; REG Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]'
+            Info: Total cell delay = 1.600 ns ( 57.14 % )
+            Info: Total interconnect delay = 1.200 ns ( 42.86 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.600 ns) = 1.600 ns; Loc. = PIN_211; Fanout = 349; CLK Node = 'clk'
+            Info: 2: + IC(1.200 ns) + CELL(0.000 ns) = 2.800 ns; Loc. = LC2_B35; Fanout = 13; REG Node = 'gen_op_f:genop_instance|angle_calc:angle_calc_0|alpha[-7]'
+            Info: Total cell delay = 1.600 ns ( 57.14 % )
+            Info: Total interconnect delay = 1.200 ns ( 42.86 % )
+    Info: + Micro clock to output delay of source is 0.800 ns
+    Info: + Micro setup delay of destination is 0.700 ns
+Info: tsu for register "gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]" (data pin = "wf[0]", clock pin = "clk") is 74.000 ns
+    Info: + Longest pin to register delay is 76.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.400 ns) = 2.400 ns; Loc. = PIN_67; Fanout = 41; PIN Node = 'wf[0]'
+        Info: 2: + IC(8.900 ns) + CELL(0.600 ns) = 11.900 ns; Loc. = LC2_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 3: + IC(0.000 ns) + CELL(0.300 ns) = 12.200 ns; Loc. = LC3_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 4: + IC(0.000 ns) + CELL(0.300 ns) = 12.500 ns; Loc. = LC4_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 5: + IC(0.000 ns) + CELL(0.300 ns) = 12.800 ns; Loc. = LC5_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 6: + IC(0.000 ns) + CELL(0.300 ns) = 13.100 ns; Loc. = LC6_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 7: + IC(0.000 ns) + CELL(0.300 ns) = 13.400 ns; Loc. = LC7_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 8: + IC(0.000 ns) + CELL(0.300 ns) = 13.700 ns; Loc. = LC8_B9; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 9: + IC(0.200 ns) + CELL(0.300 ns) = 14.200 ns; Loc. = LC1_B11; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 10: + IC(0.000 ns) + CELL(1.400 ns) = 15.600 ns; Loc. = LC2_B11; Fanout = 4; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add4|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]'
+        Info: 11: + IC(3.300 ns) + CELL(2.000 ns) = 20.900 ns; Loc. = LC8_H26; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|datab_node[6]'
+        Info: 12: + IC(3.900 ns) + CELL(0.600 ns) = 25.400 ns; Loc. = LC8_B31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 13: + IC(0.200 ns) + CELL(0.300 ns) = 25.900 ns; Loc. = LC1_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 14: + IC(0.000 ns) + CELL(0.300 ns) = 26.200 ns; Loc. = LC2_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 15: + IC(0.000 ns) + CELL(0.300 ns) = 26.500 ns; Loc. = LC3_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 16: + IC(0.000 ns) + CELL(0.300 ns) = 26.800 ns; Loc. = LC4_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 17: + IC(0.000 ns) + CELL(0.300 ns) = 27.100 ns; Loc. = LC5_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 18: + IC(0.000 ns) + CELL(0.300 ns) = 27.400 ns; Loc. = LC6_B33; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 19: + IC(0.000 ns) + CELL(0.300 ns) = 27.700 ns; Loc. = LC7_B33; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 20: + IC(0.000 ns) + CELL(1.400 ns) = 29.100 ns; Loc. = LC8_B33; Fanout = 3; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add13|addcore:adder|unreg_res_node[14]'
+        Info: 21: + IC(5.700 ns) + CELL(2.000 ns) = 36.800 ns; Loc. = LC8_H20; Fanout = 6; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add23|addcore:adder|unreg_res_node[14]~14'
+        Info: 22: + IC(1.800 ns) + CELL(0.600 ns) = 39.200 ns; Loc. = LC5_H16; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add23|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 23: + IC(0.000 ns) + CELL(0.300 ns) = 39.500 ns; Loc. = LC6_H16; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add23|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 24: + IC(0.000 ns) + CELL(1.400 ns) = 40.900 ns; Loc. = LC7_H16; Fanout = 3; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add23|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]'
+        Info: 25: + IC(3.800 ns) + CELL(2.000 ns) = 46.700 ns; Loc. = LC4_G41; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add34|addcore:adder|datab_node[9]'
+        Info: 26: + IC(2.200 ns) + CELL(2.000 ns) = 50.900 ns; Loc. = LC3_H40; Fanout = 4; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add34|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]'
+        Info: 27: + IC(4.000 ns) + CELL(0.600 ns) = 55.500 ns; Loc. = LC6_N40; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add41|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 28: + IC(0.000 ns) + CELL(0.300 ns) = 55.800 ns; Loc. = LC7_N40; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add41|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 29: + IC(0.000 ns) + CELL(0.300 ns) = 56.100 ns; Loc. = LC8_N40; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add41|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 30: + IC(0.200 ns) + CELL(1.400 ns) = 57.700 ns; Loc. = LC1_N42; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add41|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]'
+        Info: 31: + IC(2.500 ns) + CELL(2.000 ns) = 62.200 ns; Loc. = LC7_N28; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|datab_node[1]'
+        Info: 32: + IC(1.600 ns) + CELL(0.600 ns) = 64.400 ns; Loc. = LC3_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]~COUT'
+        Info: 33: + IC(0.000 ns) + CELL(0.300 ns) = 64.700 ns; Loc. = LC4_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[2]~COUT'
+        Info: 34: + IC(0.000 ns) + CELL(0.300 ns) = 65.000 ns; Loc. = LC5_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 35: + IC(0.000 ns) + CELL(0.300 ns) = 65.300 ns; Loc. = LC6_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 36: + IC(0.000 ns) + CELL(0.300 ns) = 65.600 ns; Loc. = LC7_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 37: + IC(0.000 ns) + CELL(0.300 ns) = 65.900 ns; Loc. = LC8_N29; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]~COUT'
+        Info: 38: + IC(0.200 ns) + CELL(0.300 ns) = 66.400 ns; Loc. = LC1_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[7]~COUT'
+        Info: 39: + IC(0.000 ns) + CELL(0.300 ns) = 66.700 ns; Loc. = LC2_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[8]~COUT'
+        Info: 40: + IC(0.000 ns) + CELL(0.300 ns) = 67.000 ns; Loc. = LC3_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[9]~COUT'
+        Info: 41: + IC(0.000 ns) + CELL(0.300 ns) = 67.300 ns; Loc. = LC4_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[10]~COUT'
+        Info: 42: + IC(0.000 ns) + CELL(0.300 ns) = 67.600 ns; Loc. = LC5_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[11]~COUT'
+        Info: 43: + IC(0.000 ns) + CELL(0.300 ns) = 67.900 ns; Loc. = LC6_N31; Fanout = 2; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[12]~COUT'
+        Info: 44: + IC(0.000 ns) + CELL(0.300 ns) = 68.200 ns; Loc. = LC7_N31; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|a_csnbuffer:result_node|cs_buffer[13]~COUT'
+        Info: 45: + IC(0.000 ns) + CELL(1.400 ns) = 69.600 ns; Loc. = LC8_N31; Fanout = 16; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add51|addcore:adder|unreg_res_node[14]'
+        Info: 46: + IC(1.700 ns) + CELL(2.000 ns) = 73.300 ns; Loc. = LC8_N32; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|lpm_add_sub:Add54|addcore:adder|unreg_res_node[14]'
+        Info: 47: + IC(1.600 ns) + CELL(1.200 ns) = 76.100 ns; Loc. = LC4_N27; Fanout = 13; REG Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]'
+        Info: Total cell delay = 34.300 ns ( 45.07 % )
+        Info: Total interconnect delay = 41.800 ns ( 54.93 % )
+    Info: + Micro setup delay of destination is 0.700 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.600 ns) = 1.600 ns; Loc. = PIN_211; Fanout = 349; CLK Node = 'clk'
+        Info: 2: + IC(1.200 ns) + CELL(0.000 ns) = 2.800 ns; Loc. = LC4_N27; Fanout = 13; REG Node = 'gen_op_f:genop_instance|revers_cordic_fix:rev_cordic|\reg_in:inn_x[4]'
+        Info: Total cell delay = 1.600 ns ( 57.14 % )
+        Info: Total interconnect delay = 1.200 ns ( 42.86 % )
+Info: tco from clock "clk" to destination pin "opfx[3]" through register "gen_op_f:genop_instance|str_m_inn_reg" is 18.000 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.600 ns) = 1.600 ns; Loc. = PIN_211; Fanout = 349; CLK Node = 'clk'
+        Info: 2: + IC(1.200 ns) + CELL(0.000 ns) = 2.800 ns; Loc. = LC8_R12; Fanout = 16; REG Node = 'gen_op_f:genop_instance|str_m_inn_reg'
+        Info: Total cell delay = 1.600 ns ( 57.14 % )
+        Info: Total interconnect delay = 1.200 ns ( 42.86 % )
+    Info: + Micro clock to output delay of source is 0.800 ns
+    Info: + Longest register to pin delay is 14.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC8_R12; Fanout = 16; REG Node = 'gen_op_f:genop_instance|str_m_inn_reg'
+        Info: 2: + IC(4.000 ns) + CELL(2.000 ns) = 6.000 ns; Loc. = LC6_I6; Fanout = 1; COMB Node = 'gen_op_f:genop_instance|op_x[3]'
+        Info: 3: + IC(4.100 ns) + CELL(4.300 ns) = 14.400 ns; Loc. = PIN_131; Fanout = 0; PIN Node = 'opfx[3]'
+        Info: Total cell delay = 6.300 ns ( 43.75 % )
+        Info: Total interconnect delay = 8.100 ns ( 56.25 % )
+Info: th for register "gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-9]" (data pin = "enable", clock pin = "clk") is -4.200 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.600 ns) = 1.600 ns; Loc. = PIN_211; Fanout = 349; CLK Node = 'clk'
+        Info: 2: + IC(1.200 ns) + CELL(0.000 ns) = 2.800 ns; Loc. = LC1_K51; Fanout = 4; REG Node = 'gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-9]'
+        Info: Total cell delay = 1.600 ns ( 57.14 % )
+        Info: Total interconnect delay = 1.200 ns ( 42.86 % )
+    Info: + Micro hold delay of destination is 1.500 ns
+    Info: - Shortest pin to register delay is 8.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.400 ns) = 2.400 ns; Loc. = PIN_66; Fanout = 49; PIN Node = 'enable'
+        Info: 2: + IC(4.900 ns) + CELL(1.200 ns) = 8.500 ns; Loc. = LC1_K51; Fanout = 4; REG Node = 'gen_op_f:genop_instance|st2:ct2_0|\p1:angle_inn[-9]'
+        Info: Total cell delay = 3.600 ns ( 42.35 % )
+        Info: Total interconnect delay = 4.900 ns ( 57.65 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 160 megabytes
+    Info: Processing ended: Tue Feb 13 10:55:21 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

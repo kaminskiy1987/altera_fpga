@@ -1,0 +1,33 @@
+-- begin_signature
+-- dec_ves(wf_a
+-- 0 to 3
+-- (0.0
+-- 0.16
+-- 0.5
+-- 0.08)
+-- wf_b
+-- 0 to 3
+-- (0.0
+-- 0.84
+-- 0.5
+-- 0.92)
+-- wf_width
+-- 2
+-- wo_ampl_int
+-- 5
+-- wo_ampl_fract
+-- -10)
+-- end_signature
+WIDTH=15;
+DEPTH=8;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	4 :	XXXXXXXXXXXXXXX;
+	3 :	000000001010010;
+	2 :	000001000000000;
+	1 :	000000010100100;
+	0 :	000000000000000;
+END;

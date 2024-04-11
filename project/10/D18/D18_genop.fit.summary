@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Feb 13 10:55:13 2018
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : D18_genop
+Top-level Entity Name : D18_genop
+Family : FLEX10KE
+Device : EPF10K200SRC240-3
+Timing Models : Final
+Total logic elements : 1,949 / 9,984 ( 20 % )
+Total pins : 59 / 182 ( 32 % )
+Total memory bits : 16,384 / 98,304 ( 17 % )
+Total PLLs : 0
